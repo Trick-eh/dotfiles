@@ -1,0 +1,19 @@
+#window {
+    margin: 0px;
+    background-color: rgba(19,17,24, 0.9);
+    border-radius: 15px;
+    border: 1px solid #f5ba9d;
+    color: #e0def4;
+    font-family: 'Monofur Nerd Font';
+}
+#input {
+    visibility: none;
+    margin: -8px 5px;
+}
+#entry:selected {
+    background-color: rgba(19,17,24, 0.99);
+    color: #191724;
+    border-radius: 1px;
+    outline: none;
+}
+

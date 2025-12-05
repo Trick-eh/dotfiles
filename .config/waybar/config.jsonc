@@ -1,0 +1,94 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "margin-bottom": 0,
+    "modules-left": [
+        "custom/menu",
+        "temperature",
+        "bluetooth",
+        "pulseaudio",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "network",
+        "battery",
+        "backlight",
+        "clock"
+    ],
+    "battery": {
+        "format": " {icon}",
+        "format-icons": { 
+            "default": [" ", " ", " ", " "],
+            "critical": [" "]
+        },
+        "tooltip-format": "{capacity}%"
+    },
+    "clock": {
+        "format": "{:%I:%M }"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰 ",
+        "format-muted": "",
+        "format-icons": {
+            "default": [" ", " "]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"],
+        "tooltip-format": "{volume}%"
+    },
+    "network": {
+        "format-off": "󰪎 ",
+        "format-wifi": "{icon}",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "󰞃 ", //An empty format will hide the module.
+        "format-icons": {
+            "default": ["󰢼 ","󰢽 ","󰢾 "]
+        },
+        // "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click": "ghostty -e nmtui"
+    },
+    "bluetooth": {
+        "format-on": "",
+        "format-off": "󰂲",
+        "format-connected": "{device_alias}",
+        "tooltip-format-off": "",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{device_alias}\t{device_battery_percentage}%",
+        "on-click": "ghostty -e bluetuith",
+        "on-click-right": "if [ $(bluetoothctl show | grep PowerState | sed 's/PowerState: //') = 'off' ]; then bluetoothctl power on; else bluetoothctl power off; fi"
+    },
+    "hyprland/workspaces": {
+      "format": "{name}"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10,
+        "icons": {
+            "blueman": "bluetooth"
+        }
+    },
+    "custom/menu": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "killall hyprsunset; hyprsunset -t 5000"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": [" ","󱎖 ", " "],
+        "tooltip-format": "{percent}%",
+        "scroll-step": 5
+    },
+    "temperature": {
+        "format": "{temperatureC}°C"
+    }
+}

@@ -1,0 +1,10 @@
+monitor = eDP-1
+hide_search = true
+insensitive = true
+hide_scroll = true
+cache-file = /dev/null
+show = dmenu
+width = 20
+height = 135
+location = 1
+xoffset = 50

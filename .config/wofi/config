@@ -1,0 +1,5 @@
+insensitive = true
+prompt = Search
+hide_scroll = true
+monitor = eDP-1
+conf = /dev/null

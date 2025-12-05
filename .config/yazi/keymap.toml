@@ -1,0 +1,9 @@
+[mgr]
+prepend_keymap = [ 
+    {on = ["g", "m"], run = "cd /run/media/trickk/", desc = "Go /run/media/trickk/"}, 
+    {on = ["g", "s"], run = "cd ~/.scripts/", desc = "Go ~/.scripts/"}, 
+    {on = ["g", "u"], run = "cd ~/UNS/", desc = "Go ~/UNS/"}, 
+    {on = ["g", "P"], run = "cd ~/Pictures/", desc = "Go ~/Pictures/"},
+    {on = "M", run = "plugin mount", desc = "mount volumens"},
+]
+

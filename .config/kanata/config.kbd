@@ -1,0 +1,59 @@
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defsrc
+    esc
+    caps
+    a
+    s
+    d
+    f
+    h
+    j
+    k
+    l
+    ;
+    tab
+)
+
+(defalias
+    caps  (tap-hold 200 200 esc C-Space) 
+    a     (tap-hold 200 300 a ralt )
+    s     (tap-hold 200 300 s lalt)
+    d     (tap-hold 200 200 d lsft)
+    f     (tap-hold 200 200 f lctrl)
+    j     (tap-hold 200 200 j lctrl)
+    k     (tap-hold 200 200 k lshift)
+    l     (tap-hold 200 300 l lalt)
+    enie  (tap-hold 200 300 S-comm ;)
+)
+
+(deflayer base
+    caps
+    @caps
+    @a
+    @s
+    @d
+    @f
+    h
+    @j
+    @k
+    @l
+    @enie
+    (tap-hold 200 200 tab (layer-while-held nav))
+)
+(deflayer nav
+    caps
+    @caps
+    @a
+    @s
+    @d
+    @f
+    left
+    down
+    up
+    right
+    @enie
+    (tap-hold 200 200 tab (layer-switch base))
+)

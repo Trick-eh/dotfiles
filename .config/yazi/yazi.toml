@@ -1,0 +1,20 @@
+[mgr]
+show_hidden = true
+sort_sensitive = false
+sort_dir_first = true
+linemode = "size"
+show_symlink = true
+scrolloff = 5
+
+[preview]
+wrap = "yes"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
