@@ -18,3 +18,6 @@ run  = "git"
 id   = "git"
 name = "*/"
 run  = "git"
+
+[opener]
+edit = [{ run = "nvim $1", block = true}]
