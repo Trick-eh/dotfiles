@@ -24,7 +24,11 @@
             "default": [" ", " ", " ", " "],
             "critical": [" "]
         },
-        "tooltip-format": "{capacity}%"
+        "tooltip-format": "{capacity}%",
+        "states": {
+            "warning": 20,
+            "critical": 10
+        }
     },
     "clock": {
         "format": "{:%I:%M }"
@@ -32,16 +36,18 @@
     "pulseaudio": {
         "format": "{icon}",
         "format-bluetooth": "󰂰 ",
-        "format-muted": "",
+        "format-muted": "×",
         "format-icons": {
-            "default": [" ", " "]
+            "default": [" ", ""]
         },
         "scroll-step": 5,
         "on-click": "pavucontrol",
+        "on-click-right": "amixer set Master toggle",
         "ignored-sinks": ["Easy Effects Sink"],
         "tooltip-format": "{volume}%"
     },
     "network": {
+        "interface": "wlan0",
         "format-off": "󰪎 ",
         "format-wifi": "{icon}",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
@@ -70,11 +76,8 @@
       "format": "{name}"
     },
     "tray": {
-        "icon-size": 21,
-        "spacing": 10,
-        "icons": {
-            "blueman": "bluetooth"
-        }
+        "icon-size": 19,
+        "spacing": 10
     },
     "custom/menu": {
         "format": " ",
