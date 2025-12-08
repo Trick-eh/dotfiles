@@ -31,7 +31,8 @@
         }
     },
     "clock": {
-        "format": "{:%I:%M }"
+        "format": "{:%I:%M }",
+        "on-click": "swaync-client -t"
     },
     "pulseaudio": {
         "format": "{icon}",

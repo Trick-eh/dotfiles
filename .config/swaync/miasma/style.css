@@ -79,6 +79,7 @@
 .control-center {
   background-color: @bgc;
   border-radius: 0px; /* Removed rounded corners */
+  border: 1px solid alpha(#bb7744, 0.8);
 }
 
 .control-center-list {
