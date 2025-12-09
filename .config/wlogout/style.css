@@ -1,0 +1,88 @@
+/* --orange: #bb7744; */
+/* --alt_orange: #f4a460; */
+/* --black: #222222; */
+
+*{
+    font-family: JetBrainsMonoNerdFontMono;
+    font-size: 24px;
+    transition-property: background-color;
+    transition-duration: 0.7s;
+}
+
+window {
+    background-color: rgba(40, 40, 40, 0.7);
+    border-radius: 0px; /* Removed rounded corners */
+}
+
+button {
+    color: #bb7744;
+    background-color: alpha(#222222, 0.8);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0px; /* Removed rounded corners */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15%;
+    margin: 15px;
+}
+
+button:active,
+button:hover {
+    background-color: #f4a460;
+    color: alpha(#222222, 0.8);
+}
+
+button:focus {
+    background-color: #bb7744;
+    color: alpha(#222222, 0.8);
+}
+
+
+#lock {
+    background-image: image(url("themes/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("themes/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("themes/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("themes/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("themes/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("themes/icons/reboot.png"));
+}
+
+#lock:hover, #lock:focus {
+    background-image: image(url("themes/icons/lock-hover.png"));
+}
+
+#logout:hover, #logout:focus {
+    background-image: image(url("themes/icons/logout-hover.png"));
+}
+
+#suspend:hover, #suspend:focus {
+    background-image: image(url("themes/icons/suspend-hover.png"));
+}
+
+#hibernate:hover, #hibernate:focus {
+    background-image: image(url("themes/icons/hibernate-hover.png"));
+}
+
+#shutdown:hover, #shutdown:focus {
+    background-image: image(url("themes/icons/shutdown-hover.png"));
+}
+
+#reboot:hover, #reboot:focus {
+    background-image: image(url("themes/icons/reboot-hover.png"));
+}
+
