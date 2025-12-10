@@ -30,7 +30,7 @@ if [[ $selected_functionality != "" ]]; then
 
                 case $selected_mount in 
                     videorecorder)
-                        command="scrcpy --video-source=camera --camera-size=1920x1080 --camera-facing=front --v4l2-sink=/dev/video4 --no-audio-playback --no-video-playback -$protocol_flag"    ;;
+                        command="scrcpy --video-source=camera --camera-size=1920x1080 --camera-facing=back --v4l2-sink=/dev/video4 --no-playback  -$protocol_flag"    ;;
                     screenrecorder)
                         command="scrcpy --video-source=display --v4l2-sink=/dev/video4 --no-video-playback -$protocol_flag"    ;;
                 esac
@@ -38,6 +38,6 @@ if [[ $selected_functionality != "" ]]; then
         esac
 
 
-        $command --monitor eDP-1
+        $command
     fi
 fi
