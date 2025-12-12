@@ -1,5 +1,7 @@
 #!/bin/bash
-rm ~/.config/programlist
-touch ~/.config/programlist 
+if [ ! -f ~/.config/programlist ]; then
+    touch ~/.config/programlist
+fi
+
 pacman -Qe > ~/.config/programlist
         
