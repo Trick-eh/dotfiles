@@ -134,12 +134,12 @@ newnote (){
     file_name=$1
     if [[ $file_name == "" ]]; then
         echo "the first argument must be a non empty string"
-        exit 0
+        return 
     fi
     cd $HOME/second-brain/
     if [ -f 0-inbox/$file_name.md ]; then
         echo "a note with such title already exists"
-        exit 0
+        return
     fi
 
     touch 0-inbox/$file_name.md
