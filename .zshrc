@@ -248,6 +248,7 @@ export GPG_TTY=$(tty)
 export THEME="miasma"
 export WALLPAPER="night-city-dark.png"
 export PATH="$PATH:$HOME/.cargo/bin"
+export MANPAGER="nvim +Man!"
 # export GITHUB_TOKEN=$(pass show github/tokens/personal)
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
