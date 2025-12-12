@@ -81,6 +81,80 @@ ex (){
     fi
 }
 
+## Note creation
+
+new_weekly_note (){
+    weekly_name=$(date +%Y-%W)
+    weekly_file=$HOME/second-brain/periodic-notes/weekly/$weekly_name.md
+    touch $weekly_file
+    
+    echo "# $weekly_name" > $weekly_file
+    echo "" >> $weekly_file
+    echo "## daily notes of this week:" >> $weekly_file
+}
+
+new_daily_note (){
+    daily_name=$(date +%Y-%m-%d)
+    daily_file=$HOME/second-brain/periodic-notes/daily/$daily_name.md
+    weekly_name=$(date +%Y-%W)
+    weekly_file=$HOME/second-brain/periodic-notes/weekly/$weekly_file.md
+    touch $daily_file
+
+    if [ ! -f $weekly_file ]; then
+        new_weekly_note
+    fi
+
+    echo "# $daily_name" > $daily_file
+    echo "> this week: [[periodic-notes/weekly/$weekly_name.md|$weekly_name]]" >> $daily_file
+    echo "" >> $daily_file
+    echo "## Notes made today" >> $daily_file
+    echo "- [[periodic-notes/daily/$daily_name.md|$daily_name]]" >> $weekly_file
+}
+
+daily (){
+    file_name=$(date +%Y-%m-%d)
+    cd $HOME/second-brain/
+    if [ ! -f periodic-notes/daily/$file_name.md ]; then
+        new_daily_note
+    fi
+    nvim periodic-notes/daily/$file_name.md
+}
+
+weekly (){
+    # checks if the weekly note, which should be titled as %Y-%W, exists in ~/second-brain/periodic-notes/weekly/, if it exists, it will open it in nvim, if not, it will create it and open it
+    file_name=$(date +%Y-%W)
+    cd $HOME/second-brain/
+    if [ ! -f periodic-notes/weekly/$file_name.md ]; then
+        new_weekly_note
+    fi
+    nvim periodic-notes/weekly/$file_name.md
+}
+
+newnote (){
+    file_name=$1
+    if [[ $file_name == "" ]]; then
+        echo "the first argument must be a non empty string"
+        exit 0
+    fi
+    cd $HOME/second-brain/
+    if [ -f 0-inbox/$file_name.md ]; then
+        echo "a note with such title already exists"
+        exit 0
+    fi
+
+    touch 0-inbox/$file_name.md
+    echo "# $file_name" > 0-inbox/$file_name.md
+    
+    daily_note=$(date +%Y-%m-%d)
+    if [ ! -f periodic-notes/daily/$daily_note.md ]; then
+        new_daily_note
+    fi
+
+    echo "- [[0-inbox/$file_name.md|$file_name]]" >> periodic-notes/daily/$daily_note.md
+    echo "> written on [[periodic-notes/daily/$daily_note.md|$daily_note]]" >> 0-inbox/$file_name.md
+
+    nvim 0-inbox/$file_name.md
+}
 ### ALIASES
 
 # package management
@@ -152,10 +226,14 @@ alias fastread='speedread'
 # rickrolling
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
-# tmux
+# TODO: see why these don't work
 alias tn="tmux new-session -s"
 alias tl="tmux list-sessions"
 alias ta="tmux attach-session"
+
+# custom cd's
+alias dot="cd ~/dotfiles/"
+alias brain="cd ~/second-brain/"
 
 ### EXPORTS
 set -o emacs
