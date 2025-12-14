@@ -97,7 +97,7 @@ new_daily_note (){
     daily_name=$(date +%Y-%m-%d)
     daily_file=$HOME/second-brain/periodic-notes/daily/$daily_name.md
     weekly_name=$(date +%Y-%W)
-    weekly_file=$HOME/second-brain/periodic-notes/weekly/$weekly_file.md
+    weekly_file=$HOME/second-brain/periodic-notes/weekly/$weekly_name.md
     touch $daily_file
 
     if [ ! -f $weekly_file ]; then
