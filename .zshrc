@@ -155,6 +155,29 @@ newnote (){
 
     nvim 0-inbox/$file_name.md
 }
+
+notes (){
+    cd $HOME/second-brain
+    
+    patterns=(
+        ".obsidian/**"
+        "Excalidraw/**"
+        "TaskNotes/**"
+    )
+
+    rg_command=(rg --files)
+
+    for pattern in "${patterns[@]}"; do
+        rg_command+=(-g "!$pattern")
+    done
+
+    note=$("${rg_command[@]}" | sort | fzf)
+
+    if [[ $note != "" ]]; then
+        nvim $note
+    fi
+}
+
 ### ALIASES
 
 # package management
