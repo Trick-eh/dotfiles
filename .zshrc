@@ -142,7 +142,8 @@ newnote (){
         return
     fi
 
-    touch 0-inbox/$file_name.md
+    touch 1-zettelkasten/$file_name.md
+    ln -s ../1-zettelkasten/$file_name.md 0-inbox/$file_name.md
     echo "# $file_name" > 0-inbox/$file_name.md
     
     daily_note=$(date +%Y-%m-%d)
@@ -150,7 +151,7 @@ newnote (){
         new_daily_note
     fi
 
-    echo "- [[0-inbox/$file_name.md|$file_name]]" >> periodic-notes/daily/$daily_note.md
+    echo "- [[1-zettelkasten/$file_name.md|$file_name]]" >> periodic-notes/daily/$daily_note.md
     echo "> written on [[periodic-notes/daily/$daily_note.md|$daily_note]]" >> 0-inbox/$file_name.md
 
     nvim 0-inbox/$file_name.md
