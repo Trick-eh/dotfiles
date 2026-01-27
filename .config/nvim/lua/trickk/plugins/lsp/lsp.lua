@@ -87,6 +87,7 @@ return {
 				"tinymist",
 				"zls",
 				"gopls",
+				"marksman",
 			},
 			handlers = {
 				function(server_name)
