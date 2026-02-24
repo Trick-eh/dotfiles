@@ -28,7 +28,8 @@
         "states": {
             "warning": 20,
             "critical": 10
-        }
+        },
+        "on-click": "exec ~/.scripts/battery_protection_toggle.sh"
     },
     "clock": {
         "format": "{:%I:%M }",
