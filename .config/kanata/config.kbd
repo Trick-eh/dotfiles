@@ -5,20 +5,14 @@
 (defsrc
     esc
     caps
-    a
-    s
-    d
-    f
-    h
-    j
-    k
-    l
+    a s d f
+    h j k l
     ;
     tab
 )
 
 (defalias
-    caps  (tap-hold 200 200 esc C-Space) 
+    caps  (tap-hold 200 200 esc (layer-while-held mouse)) 
     a     (tap-hold 200 300 a ralt )
     s     (tap-hold 200 300 s lalt)
     d     (tap-hold 200 200 d lsft)
@@ -27,33 +21,36 @@
     k     (tap-hold 200 200 k lshift)
     l     (tap-hold 200 300 l lalt)
     enie  (tap-hold 200 300 S-comm ;)
+    ms-up (movemouse-up 4 2)
+    ms-lt (movemouse-left 4 2)
+    ms-dn (movemouse-down 4 2)
+    ms-rt (movemouse-right 4 2)
+    vim   (layer-while-held nav)
 )
 
 (deflayer base
     caps
     @caps
-    @a
-    @s
-    @d
-    @f
-    h
-    @j
-    @k
-    @l
+    @a @s @d @f
+    h @j @k @l
     @enie
-    (tap-hold 200 200 tab (layer-while-held nav))
+    (tap-hold 200 200 tab @vim)
 )
+
 (deflayer nav
     caps
-    @caps
-    @a
-    @s
-    @d
-    @f
-    left
-    down
-    up
-    right
+    esc
+    @a @s @d @f
+    left down up right
     @enie
     (tap-hold 200 200 tab (layer-switch base))
+)
+
+(deflayer mouse
+    caps
+    (tap-hold 200 200 esc (layer-switch base))
+    _ mmid mrgt mlft
+    @ms-lt @ms-dn @ms-up @ms-rt
+    @enie
+    _
 )
