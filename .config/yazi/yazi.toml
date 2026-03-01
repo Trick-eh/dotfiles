@@ -20,11 +20,12 @@ name = "*/"
 run  = "git"
 
 [opener]
-edit = [{ run = "nvim %s", block = true }]
+edit = [{ run = "nvim $1", block = true }]
 play = [{ run = "mpv %s", orphan = true, for = "unix" }]
 
 [open]
 rules = [
     { mime = "image/*", use = "play" },
     { mime = "video/*", use = "play" },
+    { mime = "text/*", use = "edit" },
 ]
