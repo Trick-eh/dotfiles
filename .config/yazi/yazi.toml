@@ -22,10 +22,14 @@ run  = "git"
 [opener]
 edit = [{ run = "nvim $1", block = true }]
 play = [{ run = "mpv %s", orphan = true, for = "unix" }]
+open = [{ run = "xdg-open %s", desc = "Open" }]
+pdf = [{ run = "$VISUAL %s", desc = "Visualize PDF" }]
 
 [open]
 rules = [
     { mime = "image/*", use = "play" },
     { mime = "video/*", use = "play" },
     { mime = "text/*", use = "edit" },
+    { url = "*.pdf", use = "pdf" },
+    { url = "*", use = [  "edit", "open","play"] },
 ]

@@ -30,7 +30,7 @@ tooltip label {
     margin-right: 5px;
     padding: 0 20px;
     background: alpha(#bb7744, 0.8);
-    background-image: url("~/.config/waybar/assets/mate.svg");
+    background-image: image(url("./assets/mate.svg"));
     background-position: center;
     background-repeat: no-repeat;
     background-size: 15px 20px;

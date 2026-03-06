@@ -28,6 +28,7 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::gradle
+zinit snippet OMZP::zoxide
 # Load completions
 autoload -Uz compinit && compinit
 
