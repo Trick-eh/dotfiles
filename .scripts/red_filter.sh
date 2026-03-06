@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(pgrep hyprsunset) > 0 ] ; then
+if [ $(pgrep hyprsunset) ] ; then
     killall hyprsunset
 else
     hyprsunset -t $1 &
