@@ -23,7 +23,7 @@ run  = "git"
 edit = [{ run = "nvim $1", block = true }]
 play = [{ run = "mpv %s", orphan = true, for = "unix" }]
 open = [{ run = "xdg-open %s", desc = "Open" }]
-pdf = [{ run = "$VISUAL %s", desc = "Visualize PDF" }]
+pdf = [{ run = "sioyek %s", orphan = true, desc = "Visualize PDF" }]
 
 [open]
 rules = [
