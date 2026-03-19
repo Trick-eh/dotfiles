@@ -4,7 +4,6 @@ return {
 		{ "chomosuke/typst-preview.nvim", lazy = true }, -- typst previewer
 		{ "hat0uma/csvview.nvim", lazy = true }, -- csv previewer
 		{ "toppair/peek.nvim", lazy = true, build = "deno task --quiet build:fast" }, -- markdown previewer
-		{ "hat0uma/csvview.nvim", lazy = true },
 	},
 	config = function()
 		require("omni-preview").setup()

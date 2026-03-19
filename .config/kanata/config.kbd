@@ -7,6 +7,7 @@
     caps
     a s d f
     h j k l
+    kp- e i o u
     ;
     tab
 )
@@ -26,6 +27,7 @@
     ms-dn (movemouse-down 4 2)
     ms-rt (movemouse-right 4 2)
     vim   (layer-while-held nav)
+    accent (one-shot-release 2000 (layer-toggle accents))
 )
 
 (deflayer base
@@ -33,6 +35,7 @@
     @caps
     @a @s @d @f
     h @j @k @l
+    @accent _ _ _ _
     @enie
     (tap-hold 200 200 tab @vim)
 )
@@ -42,6 +45,7 @@
     esc
     @a @s @d @f
     left down up right
+    _ _ _ _ _
     @enie
     (tap-hold 200 200 tab (layer-switch base))
 )
@@ -51,6 +55,22 @@
     (tap-hold 200 200 esc (layer-switch base))
     _ mmid mrgt mlft
     @ms-lt @ms-dn @ms-up @ms-rt
+    _ _ _ _ _
     @enie
+    _
+)
+
+(deflayer accents
+    _
+    _
+    (fork (unicode á) (unicode Á) (lsft rsft))
+     _ _ _
+    _ _ _ _
+    _
+    (fork (unicode é) (unicode É) (lsft rsft))
+    (fork (unicode í) (unicode Í) (lsft rsft))
+    (fork (unicode ó) (unicode Ó) (lsft rsft))
+    (fork (unicode ú) (unicode Ú) (lsft rsft))
+    _
     _
 )
