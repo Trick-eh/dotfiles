@@ -30,7 +30,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "hyprlock & systemctl suspend",
+    "action" : "exec ~/.scripts/suspend.sh",
     "text" : "Suspend [S]",
     "keybind" : "S"
 }
